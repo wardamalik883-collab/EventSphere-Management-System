@@ -1,0 +1,328 @@
+/* OrganizerDashboard.css — Organizer Operations Hub Styles */
+
+.organizer-layout {
+  min-height: calc(100vh - 65px);
+  background: #0b0f19;
+  color: #f1f5f9;
+  font-family: inherit;
+}
+
+/* Hero Header */
+.organizer-hero {
+  background: linear-gradient(135deg, #1e1b4b 0%, #0f172a 100%);
+  border-bottom: 1px solid rgba(139, 92, 246, 0.2);
+  padding: 2rem 2.5rem;
+}
+
+.organizer-hero-inner {
+  max-width: 1400px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+}
+
+.organizer-profile-card {
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+}
+
+.organizer-avatar {
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #8b5cf6, #6366f1);
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.75rem;
+  font-weight: 700;
+  box-shadow: 0 4px 14px rgba(139, 92, 246, 0.4);
+}
+
+.organizer-profile-meta {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.organizer-profile-title-row {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.organizer-name {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #f8fafc;
+  margin: 0;
+}
+
+.organizer-badge {
+  font-size: 0.7rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  background: rgba(139, 92, 246, 0.25);
+  color: #c4b5fd;
+  border: 1px solid rgba(139, 92, 246, 0.4);
+  padding: 0.2rem 0.6rem;
+  border-radius: 6px;
+  letter-spacing: 0.05em;
+}
+
+.organizer-email,
+.organizer-phone {
+  font-size: 0.85rem;
+  color: #94a3b8;
+  margin: 0;
+}
+
+/* Main Body */
+.organizer-main {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 2rem 2.5rem;
+}
+
+/* Tab Bar */
+.organizer-tab-bar {
+  display: flex;
+  gap: 0.5rem;
+  margin-bottom: 2rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  padding-bottom: 0.5rem;
+  overflow-x: auto;
+}
+
+.organizer-tab {
+  background: transparent;
+  border: none;
+  color: #94a3b8;
+  padding: 0.65rem 1.25rem;
+  font-size: 0.9rem;
+  font-weight: 600;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.organizer-tab:hover {
+  color: #e2e8f0;
+  background: rgba(255, 255, 255, 0.04);
+}
+
+.organizer-tab.active {
+  background: rgba(139, 92, 246, 0.15);
+  color: #a78bfa;
+}
+
+/* Analytics Row */
+.organizer-analytics-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.organizer-data-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
+}
+
+/* Empty Box State */
+.organizer-empty-box {
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px dashed rgba(255, 255, 255, 0.1);
+  border-radius: 10px;
+  padding: 2.5rem 1.5rem;
+  text-align: center;
+}
+
+.empty-box-icon {
+  font-size: 2.25rem;
+  display: inline-block;
+  margin-bottom: 0.75rem;
+}
+
+.organizer-empty-box h4 {
+  font-size: 1rem;
+  color: #e2e8f0;
+  margin: 0 0 0.5rem 0;
+}
+
+.organizer-empty-box p {
+  font-size: 0.85rem;
+  color: #94a3b8;
+  max-width: 420px;
+  margin: 0 auto;
+  line-height: 1.5;
+}
+
+/* Expo Mini Cards */
+.expo-cards-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.expo-mini-card {
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: 8px;
+  padding: 1rem;
+}
+
+.expo-card-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.5rem;
+}
+
+.expo-card-title {
+  margin: 0;
+  font-size: 0.95rem;
+  color: #f8fafc;
+  font-weight: 600;
+}
+
+.expo-status-tag {
+  font-size: 0.7rem;
+  font-weight: 700;
+  padding: 0.15rem 0.5rem;
+  border-radius: 4px;
+}
+
+.expo-status-tag.status-published {
+  background: rgba(16, 185, 129, 0.15);
+  color: #34d399;
+}
+
+.expo-status-tag.status-ongoing {
+  background: rgba(59, 130, 246, 0.15);
+  color: #60a5fa;
+}
+
+.expo-status-tag.status-completed {
+  background: rgba(100, 116, 139, 0.2);
+  color: #94a3b8;
+}
+
+.expo-card-details {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  font-size: 0.8rem;
+  color: #94a3b8;
+}
+
+/* Organizer Table */
+.organizer-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.85rem;
+}
+
+.organizer-table th {
+  text-align: left;
+  padding: 0.75rem 0.5rem;
+  color: #94a3b8;
+  font-weight: 600;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.organizer-table td {
+  padding: 0.75rem 0.5rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+  color: #e2e8f0;
+}
+
+.exhibitor-cell {
+  display: flex;
+  flex-direction: column;
+}
+
+.exhibitor-cell small {
+  color: #94a3b8;
+  font-size: 0.75rem;
+}
+
+.app-status-tag {
+  font-size: 0.7rem;
+  font-weight: 700;
+  padding: 0.15rem 0.45rem;
+  border-radius: 4px;
+  text-transform: capitalize;
+}
+
+.app-status-tag.status-pending {
+  background: rgba(245, 158, 11, 0.15);
+  color: #fbbf24;
+}
+
+.app-status-tag.status-approved {
+  background: rgba(16, 185, 129, 0.15);
+  color: #34d399;
+}
+
+.app-status-tag.status-rejected {
+  background: rgba(244, 63, 94, 0.15);
+  color: #fb7185;
+}
+
+/* Loading & Error */
+.organizer-loading {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: calc(100vh - 100px);
+  gap: 1rem;
+  color: #94a3b8;
+}
+
+.organizer-spinner {
+  width: 44px;
+  height: 44px;
+  border: 4px solid rgba(255, 255, 255, 0.1);
+  border-top-color: #8b5cf6;
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+}
+
+.organizer-error {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: calc(100vh - 100px);
+  padding: 2rem;
+}
+
+/* Status bar accents */
+.bar-upcoming { background: #3b82f6; }
+.bar-ongoing { background: #10b981; }
+.bar-completed { background: #64748b; }
+.bar-draft { background: #f59e0b; }
+.bar-pending { background: #f59e0b; }
+.bar-approved { background: #10b981; }
+.bar-rejected { background: #f43f5e; }
+
+@media (max-width: 1024px) {
+  .organizer-analytics-row,
+  .organizer-data-row {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 768px) {
+  .organizer-hero,
+  .organizer-main {
+    padding: 1.25rem;
+  }
+}

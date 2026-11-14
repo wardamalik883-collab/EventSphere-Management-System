@@ -1,0 +1,119 @@
+/* ─── ApiStatus component styles ─────────────────────────────────────────────── */
+
+.api-status {
+  background: var(--color-bg-card);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  padding: var(--spacing-xl);
+  max-width: 580px;
+  width: 100%;
+}
+
+.api-status__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: var(--spacing-lg);
+}
+
+.api-status__title {
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--color-text-secondary);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.api-status__refresh-btn {
+  background: rgba(233, 69, 96, 0.1);
+  border: 1px solid rgba(233, 69, 96, 0.3);
+  color: var(--color-accent);
+  border-radius: var(--radius-md);
+  padding: 4px 12px;
+  font-size: 0.8rem;
+  cursor: pointer;
+  transition: background var(--transition-fast), border-color var(--transition-fast);
+}
+
+.api-status__refresh-btn:hover:not(:disabled) {
+  background: rgba(233, 69, 96, 0.2);
+  border-color: var(--color-accent);
+}
+
+.api-status__refresh-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* Loading state */
+.api-status__loading {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--spacing-md);
+  padding: var(--spacing-xl) 0;
+  color: var(--color-text-secondary);
+  font-size: 0.9rem;
+}
+
+/* Row layout for each status item */
+.api-status__row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--spacing-sm) 0;
+  border-bottom: 1px solid var(--color-border);
+  font-size: 0.9rem;
+  gap: var(--spacing-md);
+}
+
+.api-status__row:last-child {
+  border-bottom: none;
+}
+
+.api-status__label {
+  color: var(--color-text-secondary);
+  flex-shrink: 0;
+}
+
+.api-status__value {
+  font-family: var(--font-mono);
+  font-size: 0.82rem;
+  color: var(--color-text-primary);
+  word-break: break-all;
+  text-align: right;
+}
+
+/* Error state */
+.api-status__error {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-sm);
+}
+
+.api-status__error-title {
+  font-weight: 600;
+  color: var(--color-error);
+}
+
+.api-status__error-msg {
+  font-size: 0.85rem;
+  color: var(--color-text-secondary);
+  font-family: var(--font-mono);
+}
+
+/* Responsive */
+@media (max-width: 480px) {
+  .api-status {
+    padding: var(--spacing-lg);
+  }
+
+  .api-status__row {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .api-status__value {
+    text-align: left;
+  }
+}

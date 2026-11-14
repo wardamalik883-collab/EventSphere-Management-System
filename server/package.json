@@ -1,0 +1,32 @@
+{
+  "name": "eventsphere-server",
+  "version": "1.0.0",
+  "description": "EventSphere Management — Express REST API backend",
+  "main": "src/index.js",
+  "scripts": {
+    "start": "node src/index.js",
+    "dev": "nodemon src/index.js",
+    "test": "node test/models.test.js && node test/security.test.js && node test/auth.test.js && node test/user.test.js && node test/dashboard.test.js && node test/expo.test.js && node test/exhibitor.test.js && node test/booth.test.js && node test/session.test.js && node test/attendee.test.js && node test/exhibitor-directory.test.js && node test/messaging.test.js && node test/notification.test.js && node test/reminder.test.js && node test/feedback.test.js && node test/analytics.test.js",
+    "test:security": "node test/models.test.js && node test/security.test.js"
+  },
+  "keywords": [
+    "eventsphere",
+    "express",
+    "nodejs",
+    "rest-api"
+  ],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "bcryptjs": "^3.0.3",
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.5",
+    "express": "^4.19.2",
+    "jsonwebtoken": "^9.0.3",
+    "mongoose": "^8.4.1",
+    "multer": "^2.5.0"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.4"
+  }
+}
