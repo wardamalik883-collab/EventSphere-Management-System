@@ -1,30 +1,33 @@
 {
-  "version": 2,
-  "builds": [
+  "$schema": "https://openapi.vercel.sh/vercel.json",
+  "services": {
+    "eventsphere-client": {
+      "root": "client"
+    },
+    "eventsphere-api": {
+      "root": "server"
+    }
+  },
+  "rewrites": [
     {
-      "src": "client/package.json",
-      "use": "@vercel/static-build",
-      "config": {
-        "distDir": "build"
+      "source": "/api/:match*",
+      "destination": {
+        "service": "eventsphere-api",
+        "path": "/api/:match*"
       }
     },
     {
-      "src": "server/src/index.js",
-      "use": "@vercel/node"
-    }
-  ],
-  "routes": [
-    {
-      "src": "/api/(.*)",
-      "dest": "server/src/index.js"
+      "source": "/uploads/:match*",
+      "destination": {
+        "service": "eventsphere-api",
+        "path": "/uploads/:match*"
+      }
     },
     {
-      "src": "/uploads/(.*)",
-      "dest": "server/src/index.js"
-    },
-    {
-      "src": "/(.*)",
-      "dest": "client/$1"
+      "source": "/(.*)",
+      "destination": {
+        "service": "eventsphere-client"
+      }
     }
   ]
 }
