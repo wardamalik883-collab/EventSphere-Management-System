@@ -18,11 +18,11 @@ const mongoose = require('mongoose');
  * @returns {Promise<boolean>} true if connected, false on error.
  */
 const connectDB = async () => {
-  const uri = process.env.MONGO_URI;
+  const uri = process.env.MONGO_URI || process.env.MONGODB_URI;
 
   if (!uri) {
     console.warn(
-      '[DB] MONGO_URI is not set in .env — skipping database connection.'
+      '[DB] MONGO_URI or MONGODB_URI is not set in environment — skipping database connection.'
     );
     return false;
   }

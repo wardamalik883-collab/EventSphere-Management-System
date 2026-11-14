@@ -19,7 +19,7 @@ services:
       - key: JWT_SECRET
         generateValue: true # Render will generate a cryptographically strong 256-bit secret
       - key: JWT_EXPIRES_IN
-        value: 7d
+        value: 30d
       - key: CLIENT_ORIGIN
         sync: false # Set to your deployed frontend URL (e.g. https://eventsphere.vercel.app)
       - key: MAX_FILE_SIZE_MB
