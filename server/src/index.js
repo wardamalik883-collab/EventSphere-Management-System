@@ -15,6 +15,7 @@
  */
 
 const path = require('path');
+const fs = require('fs');
 
 // Load .env from the server root (one level up from src/)
 require('dotenv').config({ path: path.resolve(__dirname, '../.env') });
@@ -130,13 +131,25 @@ app.use('/api/analytics', analyticsRoutes);
 
 
 
-// Root route — basic confirmation that the API is reachable
-app.get('/', (req, res) => {
-  res.json({
-    message: 'Welcome to the EventSphere Management API',
-    docs: 'GET /api/health for server status',
+// ─── Frontend Static Serving (Fullstack Unified Deployment) ─────────────────
+const clientBuildPath = path.resolve(__dirname, '../../client/build');
+if (fs.existsSync(clientBuildPath)) {
+  app.use(express.static(clientBuildPath));
+  app.get('*', (req, res, next) => {
+    if (req.path.startsWith('/api') || req.path.startsWith('/uploads')) {
+      return next();
+    }
+    res.sendFile(path.join(clientBuildPath, 'index.html'));
   });
-});
+} else {
+  // Root route — basic confirmation that the API is reachable
+  app.get('/', (req, res) => {
+    res.json({
+      message: 'Welcome to the EventSphere Management API',
+      docs: 'GET /api/health for server status',
+    });
+  });
+}
 
 // ─── 404 handler ─────────────────────────────────────────────────────────────
 app.use(notFound);
