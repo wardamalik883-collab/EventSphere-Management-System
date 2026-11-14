@@ -1,0 +1,13 @@
+{
+  "name": "eventsphere-management-system",
+  "version": "1.0.0",
+  "description": "EventSphere Management System — MERN Stack",
+  "private": true,
+  "workspaces": [
+    "server",
+    "client"
+  ],
+  "scripts": {
+    "build": "cd client && npm install && npm run build"
+  }
+}

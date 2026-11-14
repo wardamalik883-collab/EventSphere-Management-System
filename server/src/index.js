@@ -21,6 +21,7 @@ require('dotenv').config({ path: path.resolve(__dirname, '../.env') });
 
 const express = require('express');
 const cors = require('cors');
+const mongoose = require('mongoose');
 
 const connectDB = require('./config/db');
 const healthRoutes = require('./routes/healthRoutes');
@@ -97,6 +98,18 @@ app.use(requestLogger);
 
 // ─── Static files ────────────────────────────────────────────────────────────
 app.use('/uploads', express.static(path.resolve(__dirname, '../uploads')));
+
+// ─── Serverless DB Connection Assurance ─────────────────────────────────────
+app.use(async (req, res, next) => {
+  if (mongoose.connection.readyState !== 1) {
+    try {
+      await connectDB();
+    } catch (_) {
+      // connectDB handles logging
+    }
+  }
+  next();
+});
 
 // ─── Routes ──────────────────────────────────────────────────────────────────
 app.use('/api/health', healthRoutes);
@@ -184,6 +197,8 @@ const startServer = async () => {
   });
 };
 
-startServer();
+if (!process.env.VERCEL) {
+  startServer();
+}
 
 module.exports = app; // exported for potential testing use

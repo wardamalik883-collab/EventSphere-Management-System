@@ -18,6 +18,10 @@ const mongoose = require('mongoose');
  * @returns {Promise<boolean>} true if connected, false on error.
  */
 const connectDB = async () => {
+  if (mongoose.connection.readyState === 1) {
+    return true;
+  }
+
   const uri = process.env.MONGO_URI || process.env.MONGODB_URI;
 
   if (!uri) {
