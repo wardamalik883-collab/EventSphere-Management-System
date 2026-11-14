@@ -34,6 +34,7 @@ server/uploads/avatars/*
 tmp/
 
 # ─── OS / editor artifacts ───────────────────────────────────────────────────
+*.zip
 .DS_Store
 Thumbs.db
 *.log
